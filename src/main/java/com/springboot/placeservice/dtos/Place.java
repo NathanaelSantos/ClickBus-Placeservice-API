@@ -6,11 +6,11 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 public record Place(
-        UUID id,
+        Long id,
         String name,
         String slug,
         String state,
-        LocalDateTime createAt,
-        LocalDateTime updateAt
+        LocalDateTime createdAt,
+        LocalDateTime updatedAt
 ) {
 }
