@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class PlaceserviceApplicationTests {
+class PlaceserviceTests {
 
 	@Autowired
 	WebTestClient webTestClient;
@@ -30,5 +30,18 @@ class PlaceserviceApplicationTests {
 				.jsonPath("createdAt").isNotEmpty()
 				.jsonPath("updatedAt").isNotEmpty();
 
+	}
+
+	@Test
+	public void testCreatePlaceFailure(){
+		var name = "";
+		var state = "";
+
+		webTestClient
+				.post()
+				.uri("/places")
+				.bodyValue(new PlaceRequest(name, state))
+				.exchange()
+				.expectStatus().isBadRequest();
 	}
 }
