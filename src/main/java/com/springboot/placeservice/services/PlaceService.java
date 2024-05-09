@@ -16,7 +16,12 @@ public class PlaceService {
     }
 
     public Mono<Place> create(PlaceRequest placeRequest) {
-        var place = new Place(null, placeRequest.name(), slfy.slugify(placeRequest.name()), placeRequest.state(), placeRequest.createdAt(), placeRequest.updatedAt());
+        var place = new Place(null,
+                placeRequest.name(),
+                slfy.slugify(placeRequest.name()),
+                placeRequest.state(),
+                null,
+                null);
         return repositoy.save(place);
     }
 }
