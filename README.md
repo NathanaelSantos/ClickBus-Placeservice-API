@@ -89,31 +89,32 @@ Os testes do PlaceService são escritos usando JUnit 5 e o WebTestClient do Spri
 
 # 🐋 Docker
 
-1. **Compilação do Projeto**
+1. **Project Compilation**
 
-    O comando a seguir é usado para compilar o projeto e empacotar o resultado em um arquivo JAR:
+    The following command is used to compile the project and package the result into a JAR file:
 
     ```bash
     ./mvnw clean package
     ```
 
-2. **Construção da Imagem Docker**
+2. **Building the Docker Image**
 
-    O comando a seguir é usado para construir uma imagem Docker do projeto usando o plugin Spring Boot:
+    The following command is used to build a Docker image of the project using the Spring Boot:
 
     ```bash
     ./mvnw spring-boot:build-image
     ```
 
-3. **Execução da Imagem Docker**
+3. **Running the Docker Image**
 
-    O comando a seguir é usado para executar a imagem Docker:
+    The following command is used to run the Docker image:
 
     ```bash
     docker run --name placeservice -p 8080:8080 -d placeservice:0.0.1-SNAPSHOT
     ```
 
-    Isso irá iniciar um contêiner Docker chamado `placeservice`, mapear a porta 8080 do contêiner para a porta 8080 do host e executar o contêiner em segundo plano.
+    This will start a Docker container named `placeservice`, map the container's port 8080 to the host's port 8080, and run the container in the background.
+
 
 
 ![Screenshot 2024-05-10 225605](https://github.com/NathanaelSantos/ClickBus-Placeservice-API/assets/45519156/535b4e44-9ca5-4089-89f0-4bbd90b6fc0c)
