@@ -74,6 +74,8 @@ To run this project locally, follow these steps:
 # 📝 API Endpoints
 To make HTTP requests, you can use the httpie tool, Postman, or any other of your preference.
 
+![Screenshot 2024-05-10 215951](https://github.com/NathanaelSantos/ClickBus-Placeservice-API/assets/45519156/98719d4a-2c7a-485c-822e-a19f7a8a3302)
+
 Here is an example of how to make a POST request to the `/places` endpoint:
 
 ```bash
@@ -82,5 +84,38 @@ http POST :8080/places name="Place Name" state="State"
 
 # 🧪 Testes do PlaceService
 Os testes do PlaceService são escritos usando JUnit 5 e o WebTestClient do Spring Boot.
-```
+
+![Screenshot 2024-05-10 222445](https://github.com/NathanaelSantos/ClickBus-Placeservice-API/assets/45519156/a1b276f4-ffec-43cc-a320-7089a0167f9e)
+
+# 🐋 Docker
+
+1. **Compilação do Projeto**
+
+    O comando a seguir é usado para compilar o projeto e empacotar o resultado em um arquivo JAR:
+
+    ```bash
+    ./mvnw clean package
+    ```
+
+2. **Construção da Imagem Docker**
+
+    O comando a seguir é usado para construir uma imagem Docker do projeto usando o plugin Spring Boot:
+
+    ```bash
+    ./mvnw spring-boot:build-image
+    ```
+
+3. **Execução da Imagem Docker**
+
+    O comando a seguir é usado para executar a imagem Docker:
+
+    ```bash
+    docker run --name placeservice -p 8080:8080 -d placeservice:0.0.1-SNAPSHOT
+    ```
+
+    Isso irá iniciar um contêiner Docker chamado `placeservice`, mapear a porta 8080 do contêiner para a porta 8080 do host e executar o contêiner em segundo plano.
+
+
+![Screenshot 2024-05-10 225605](https://github.com/NathanaelSantos/ClickBus-Placeservice-API/assets/45519156/535b4e44-9ca5-4089-89f0-4bbd90b6fc0c)
+
 
