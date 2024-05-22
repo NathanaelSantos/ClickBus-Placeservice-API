@@ -4,5 +4,6 @@ CREATE TABLE IF NOT EXISTS place (
     slug VARCHAR(255) NOT NULL,
     state VARCHAR(255) NOT NULL,
     created_at TIMESTAMP NOT NULL,
-    updated_at TIMESTAMP NOT NULL
+    updated_at TIMESTAMP NOT NULL,
+    UNIQUE (name, state)
 );
