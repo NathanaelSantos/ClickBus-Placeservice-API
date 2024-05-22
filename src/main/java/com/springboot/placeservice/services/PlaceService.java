@@ -3,7 +3,11 @@ package com.springboot.placeservice.services;
 import com.github.slugify.Slugify;
 import com.springboot.placeservice.apis.PlaceRequest;
 import com.springboot.placeservice.dtos.Place;
+import com.springboot.placeservice.exceptions.PlaceAlreadyExistsException;
+import com.springboot.placeservice.exceptions.PlacePersistenceException;
+import com.springboot.placeservice.exceptions.ResourceNotFoundException;
 import com.springboot.placeservice.repositories.PlaceRepositoy;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -18,14 +22,20 @@ public class PlaceService {
     }
 
     public Mono<Place> create(PlaceRequest placeRequest) {
-        return repository.save(
-                new Place(null,
-                        placeRequest.name(),
-                        slfy.slugify(placeRequest.name()),
-                        placeRequest.state(),
-                        null,
-                        null)
-        );
+
+        var place = new Place(null,
+                placeRequest.name(),
+                slfy.slugify(placeRequest.name()),
+                placeRequest.state(),
+                null,
+                null);
+
+        return repository.save(place)
+                .onErrorResume(DataIntegrityViolationException.class,
+                        e -> Mono.error(new PlaceAlreadyExistsException("A place with the same ID already exists in the database.")))
+                .onErrorResume(
+                        e -> Mono.error(new PlacePersistenceException("Error while creating the place: " + e.getMessage()))
+                );
     }
 
     public Flux<Place> getAll() {
@@ -33,7 +43,8 @@ public class PlaceService {
     }
 
     public Mono<Place> findById(Long id) {
-        return repository.findById(id);
+        return repository.findById(id)
+                .switchIfEmpty(Mono.error(new ResourceNotFoundException("Place not found with id: " + id)));
     }
 
     public Mono<Place> findByName(String name) {
