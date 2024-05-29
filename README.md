@@ -74,6 +74,11 @@ To run this project locally, follow these steps:
 # 📝 API Endpoints
 To make HTTP requests, you can use the httpie tool, Postman, or any other of your preference.
 
+[api-docs-swagger](http://localhost:8080/webjars/swagger-ui/index.html)
+
+![Screenshot 2024-05-28 213755](https://github.com/NathanaelSantos/ClickBus-Placeservice-API/assets/45519156/70b01625-70c0-402f-80c7-e235554f570a)
+
+
 ![Screenshot 2024-05-10 215951](https://github.com/NathanaelSantos/ClickBus-Placeservice-API/assets/45519156/98719d4a-2c7a-485c-822e-a19f7a8a3302)
 
 Here is an example of how to make a POST request to the `/places` endpoint:
