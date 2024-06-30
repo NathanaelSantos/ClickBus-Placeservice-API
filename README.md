@@ -58,7 +58,7 @@ This project was developed with the following technologies:
 - Spring Webflux
 - Spring Data + R2DBC
 
-# 📚 Patterns Used
+# <img width="64" height="64" src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/external-patterns-data-analytics-flaticons-flat-flat-icons.png" alt="external-patterns-data-analytics-flaticons-flat-flat-icons"/> Patterns Used
 The following design patterns were used in this project:
 
 - SOLID
@@ -71,7 +71,7 @@ To run this project locally, follow these steps:
 2. Navigate to the project folder and run the command `mvn spring-boot:run` to start the application.
 3. The API will be available at `localhost:8080`.
 
-# 📝 API Endpoints
+# <img width="48" height="48" src="https://img.icons8.com/color/48/api.png" alt="api"/> API Endpoints
 To make HTTP requests, you can use the httpie tool, Postman, or any other of your preference.
 
 [api-docs-swagger](http://localhost:8080/webjars/swagger-ui/index.html)
@@ -92,7 +92,7 @@ Os testes do PlaceService são escritos usando JUnit 5 e o WebTestClient do Spri
 
 ![Screenshot 2024-05-10 222445](https://github.com/NathanaelSantos/ClickBus-Placeservice-API/assets/45519156/a1b276f4-ffec-43cc-a320-7089a0167f9e)
 
-# 🐋 Docker
+# <img width="48" height="48" src="https://img.icons8.com/fluency/48/docker.png" alt="docker"/> Docker
 
 1. **Project Compilation**
 
